@@ -1,0 +1,88 @@
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author Julian Ramos
+ */
+class Bidimensional {
+    
+    
+
+    public static void main (String []args){
+        
+        
+        int filas, col, sumaFilas=0, sumaCol=0;
+        int Matriz [][];
+        
+
+        
+        filas = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de filas"));
+        col= Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de Columnas"));
+        
+
+        
+        Matriz = new int [filas][col];
+        
+
+        
+        for(int i=0; i<filas; i++){
+            for (int x=0; x<col; x++){
+                
+                Matriz[i][x] = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de la posicion ["+i+"]["+x+"]"));
+                
+            }
+        }
+     
+        
+
+        String cadena1 = "", cadena2 = "";
+        int cont = 0;
+
+        for (int i = 0; i < filas; i++) {
+            for (int x = 0; x < col; x++) {
+
+                if (x < col) {
+
+                    sumaFilas += Matriz[i][x];
+
+                }
+            }
+
+            cadena1 += "Suma Materia fila " + (i+1) + " = " + sumaFilas + "\n ";
+            
+            cadena1 += "Promedio Materia fila " + (i+1) + " = " + sumaFilas/filas + "\n ";
+            sumaFilas = 0;
+            
+
+        }
+        
+        
+
+
+
+        for(int i=0; i<col; i++){
+            for(int x=0; x<filas; x++){
+                
+                if(x<filas){
+                    
+                    sumaCol += Matriz [x][i];
+                }
+                
+                
+            }
+            
+            cadena2 += "Suma Columna materia " + (i+1) +" = " + sumaCol + "\n";
+            cadena2 += "Promedio Columna materia " + (i+1) +" = " + sumaCol/col + "\n";
+            
+            sumaCol = 0;
+            
+        }
+       
+       
+        
+        JOptionPane.showMessageDialog(null, "La suma y promedio de fila y columna es: \n " + cadena1 +  cadena2);
+        
+    }
+    
+}
+    
